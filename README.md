@@ -17,37 +17,38 @@ Stretch Goals? Once your project is fully functional and demonstrates adequate s
 plating would make your website utterly awesome? Stretch goals aren’t part of your grade; they are just for your own satisfaction.
 
 The general theme will be a general store that sells bushcraft and modern survival equipment for customers. What the website is going to do is draw
-customers in who are in need of supplies to get them through the day, the website will be a game based item shop so it's not going to be selling real
-items but items related to an massive multiplayer online game. The MMO game won't actually exist, but the website would be designed in a way where if
+customers in who are in need of supplies to get them through the day, the website will be a game-based item shop so it's not going to be selling real
+items but items related to a massive multiplayer online game. The MMO game won't actually exist, but the website would be designed in a way where if
 it did exist that this is how the website would function.
 
 The target audience will be people who are playing the mmo game mentioned before and it will cater to their expectation on how an online market should
-look like. So the target audience would be anyone who is mature, 18+, as the mmo itself would be a mature game. I am aware of the University policies,
-so it will only be g-rated items for the market available at this time.
+look like. So, the target audience would be anyone who is mature, 18+, as the mmo itself would be a mature game. I am aware of the University policies,
+so, it will only be g-rated items for the market available at this time.
 
 The audience will be interested in buying variety of gear sold by many merchants across the mmo game. The areas will be displayed on the website itself in
 one of the pages, and it will be in a png map either made by myself or from external software. It will also try to compare item prices from all these different
 merchants.
 
-I will try to implement arificial inflation just to make things interesting. If this doesn't pan out please don't penalize me, because I know it will be
+I will try to implement artificial inflation just to make things interesting. If this doesn't pan out please don't penalize me, because I know it will be
 difficult. However, I do know it is do able, even if it isn't for myself.
 
 The data it will manage goes like this, image, item name, item price, seller name, location of seller (in the game), quantity of items, taxes, item size
-(for clothing), item color, and item description. All of these qill be unique to each item, so no item will have the same qualities. If something
+(for clothing), item color, and item description. All of these will be unique to each item, so no item will have the same qualities. If something
 is left out we will address it later on.
 
-Most of the data will be backend but some of the mentioned data will be calculated in the frontend. Such as taxes and qunatity will be frontend based.
+Most of the data will be backend but some of the mentioned data will be calculated in the frontend. Such as taxes and quantity will be frontend based.
 The majority of the data will be handled server side. The rest of the website would just be handling both the front end and backend data, and
 manipulating the data as needed.
 
-So the home page will be an introduction to the mmo and some features that are in the mmo. The second page will be where you upload items and the merchant names
+So, the home page will be an introduction to the mmo and some features that are in the mmo. The second page will be where you upload items and the merchant names
 into the database as well as their locations and delete items based on ID. The third page is data retrieval which will be handled two ways, all data from the server
 or just a selected item(s) based on your keywords, pick the item(s) you want then the quantities of each and reveal the total price of the item(s). The fourth page is
 the list of locations using the png and location descriptions.
 
-Well, once this market is up and running, I would try to see what else I can implement on my website such as a user database and ofcourse some
-security features to the user database. Such as hashing user passwords, user privledges on the website (regular user, moderator, and admin alike).
+Well, once this market is up and running, I would try to see what else I can implement on my website such as a user database and of course some
+security features to the user database. Such as hashing user passwords, user privileges on the website (regular user, moderator, and admin alike).
 Then I would see how I would implement this market into the actual game itself (if it were real), so it can be dynamic.
+
 
 ## Project Wireframe
 
