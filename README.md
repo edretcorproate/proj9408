@@ -54,7 +54,7 @@ Then I would see how I would implement this market into the actual game itself (
 
 TODO: Replace the wireframe below with you own design.
 
-![wireframe](wireframe-example.png)
+![wireframe](Website-Wireframe.png)
 
 ## For me
 
