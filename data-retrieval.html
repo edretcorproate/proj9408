@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Retrieve Item(s)</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <h1 class="header" ><img class="header" src="img/infected.png" alt="infected logo" style="width:50px;height:50px;"> Kilimanjaro Black Market <img class="header" src="img/infected.png" alt="infected logo" style="width:50px;height:50px;"></h1>
+  
+  <div>
+	<ul class="navigation">
+		<li><a href="index.html">Home</a></li>
+		<li><a href="data-modification.html">Add/Remove Market Item</a></li>
+		<li><span>Retrieve Specific/All Items</span></li>
+		<li><a href="merchant-map.html">Merchant Map</a></li>
+	</ul>
+  </div>
+  
+  <hr>
+
+  <article class="retrieval">
+    <h2 style="color:black;margin-left: auto;margin-right: auto;text-align: center;">Data Retrieval</h2>
+    <p>Below is where you retrieve all or some items from the Kilimanjaro Black Market.</p>
+
+    <hr>
+
+    <p id="lambda-info">
+      <!-- loaded with AJAX -->
+    </p>
+
+    <hr>
+    <button id="load-data">Load All Items</button>
+    <hr>
+    <!-- Form here -->
+    <form id="form">
+      <label for="id">ID #1:</label><br>
+      <input type="text" id="id" name="id"><br>
+      <label for="id2">ID #2:</label><br>
+      <input type="text" id="id2" name="id2"><br>
+      <label for="id3">ID #3:</label><br>
+      <input type="text" id="id3" name="id3"><br>
+      <br>
+      <br>
+    </form>
+    <br>
+
+    <button id="load-id">Load Specific Item(s)</button>
+    <hr>
+
+    <!-- Form here -->
+    <!-- action="/action_page.php"-->
+    <form id="formtwo">
+      <label for="location">Choose a location:</label>
+      <select name="location" id="location">
+        <option value="Harm. Theo.">Harmuhadian Theocracy</option>
+        <option value="Prince Laut.">Principality of Lautarvi</option>
+        <option value="Prince Scan.">Principality of Scandonia</option>
+        <option value="Big. Empire">Biganian Empire</option>
+        <option value="Prince Navel.">Principality of Navelsbachia</option>
+        <option value="Prince Nare.">Principality of Nares</option>
+        <option value="Rarie. League">Rarieresian League</option>
+        <option value="Rep. Oper.">Republic of Opermihia</option>
+        <option value="Bishop. Madria">Bishopric of Madria</option>
+      </select>
+      <br>
+      <br>
+    </form>
+    <br>
+    <button id="load-location">Load by location</button>
+    <hr>
+
+    <!-- Form here -->
+    <!-- action="/action_page.php"-->
+    <form id="formthree">
+      <label for="sellername">Choose a seller:</label>
+      <select name="sellername" id="sellername">
+        <option value="John H.">Johnathan Harbor</option>
+        <option value="Madhu Y.">Madhu Yaser</option>
+        <option value="Sev. Gul.">Severus Gulbrand</option>
+        <option value="Ash. Sul.">Ashwin Suleimen</option>
+        <option value="Adj. Min.">Ajdin Minna</option>
+        <option value="Ant. Sad.">Antonella Sadiq</option>
+        <option value="Jaq. Cin.">Jaqueline Cinta</option>
+        <option value="Naj. Mél.">Naja Mélodie</option>
+        <option value="She. Lis.">Sheila Lisakhanya</option>
+      </select>
+      <br>
+      <br>
+    </form>
+    <br>
+    <button id="load-name">Load by name</button>
+    <hr>
+
+    <br>
+    <br>
+    <table id="table">
+      <tr>
+          <th>Item Id</th>
+          <th>Image</th>
+          <th>Item Name</th>
+          <th>Item Price</th>
+          <th>Item Description</th>
+          <th>Seller Name</th>
+          <th>Location</th>
+          <th>Delete row</th>
+      </tr>
+      <tr>
+          <td>0000000</td>
+          <td>https://www.example.com/</td>
+          <td>Sample</td>
+          <td>19</td>
+          <td>--------------------</td>
+          <td>--------------------</td>
+          <td>--------------------</td>
+          <td><button id="delete-data">Delete Data</button></td>
+      </tr>
+  </table>
+
+    <br>
+  </article>
+
+  <hr>
+  <div class="footer">
+    <p>This website is made by Emanuel (Emi) Dretcanu to be used for <a href="https://www.boisestate.edu/">Boise State University</a> in accordance to their policies.</p>
+  </div>
+  <script>
+    document.getElementById("load-data").onclick = function () {
+      let lambda = document.getElementById("lambda-info");
+      let xhr = new XMLHttpRequest();
+      xhr.addEventListener("load", function () {
+        // Get data from JSON server
+        let data = JSON.parse(xhr.response);
+
+        data.forEach(element => {
+          // Find a <table> element with id="table":
+          var table = document.getElementById("table");
+          
+          // Create an empty <tr> element and add it to the 1st position of the table:
+          var row = table.insertRow(2);
+          
+          // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+          var cell5 = row.insertCell(4);
+          var cell6 = row.insertCell(5);
+          var cell7 = row.insertCell(6);
+          var cell8 = row.insertCell(7);
+            
+          // Add some text to the new cells:
+          cell1.innerHTML = element.id;
+          cell2.innerHTML = '<img src="'+element.image+'" alt="An image." style="width:100px;height:100px;">'; 
+          cell3.innerHTML = element.name; 
+          cell4.innerHTML = element.price;
+          cell5.innerHTML = element.description;
+          cell6.innerHTML = element.sellername;
+          cell7.innerHTML = element.sellerlocation;
+          cell8.innerHTML = '<button id="delete-data">Delete Data</button>';
+        });
+
+        /* lambda.innerHTML = xhr.response; */
+      });
+      xhr.open("GET", "https://kbtch9wude.execute-api.us-east-2.amazonaws.com/items");
+      xhr.send();
+    }
+
+    document.getElementById("load-id").onclick = function () {
+      var form = document.getElementById("form");
+      // 6666666 test put name 19
+      var id = form.elements[0].value;
+      var id2 = form.elements[1].value;
+      var id3 = form.elements[2].value;
+
+      // Data Sanitation
+      id = onlyNumeric(id);
+      id2 = onlyNumeric(id2);
+      id3 = onlyNumeric(id3);
+
+      let lambda = document.getElementById("lambda-info");
+      let xhr = new XMLHttpRequest();
+      xhr.addEventListener("load", function () {
+        // Get data from JSON server
+        let data = JSON.parse(xhr.response);
+
+        data.forEach(element => {
+          if(element.id == id || element.id == id2 || element.id == id3) {
+            // Find a <table> element with id="table":
+            var table = document.getElementById("table");
+            
+            // Create an empty <tr> element and add it to the 1st position of the table:
+            var row = table.insertRow(2);
+            
+            // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+            
+            // Add some text to the new cells:
+            cell1.innerHTML = element.id;
+            cell2.innerHTML = '<img src="'+element.image+'" alt="An image." style="width:100px;height:100px;">'; 
+            cell3.innerHTML = element.name; 
+            cell4.innerHTML = element.price;
+            cell5.innerHTML = element.description;
+            cell6.innerHTML = element.sellername;
+            cell7.innerHTML = element.sellerlocation;
+            cell8.innerHTML = '<button id="delete-data">Delete Data</button>';
+          }
+        });
+      });
+      xhr.open("GET", "https://kbtch9wude.execute-api.us-east-2.amazonaws.com/items");
+      xhr.send();
+    }
+
+    document.getElementById("load-location").onclick = function () {
+      var select = document.querySelector("body article form[id='formtwo'] select[id='location']");
+      var selectedIndex = select.selectedIndex;
+      var options = select.options;
+      var selectedValue = options[selectedIndex].value;
+
+      let lambda = document.getElementById("lambda-info");
+      let xhr = new XMLHttpRequest();
+      xhr.addEventListener("load", function () {
+        // Get data from JSON server
+        let data = JSON.parse(xhr.response);
+
+        data.forEach(element => {
+          if(element.sellerlocation == selectedValue) {
+            // Find a <table> element with id="table":
+            var table = document.getElementById("table");
+            
+            // Create an empty <tr> element and add it to the 1st position of the table:
+            var row = table.insertRow(2);
+            
+            // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+            
+            // Add some text to the new cells:
+            cell1.innerHTML = element.id;
+            cell2.innerHTML = '<img src="'+element.image+'" alt="An image." style="width:100px;height:100px;">'; 
+            cell3.innerHTML = element.name; 
+            cell4.innerHTML = element.price;
+            cell5.innerHTML = element.description;
+            cell6.innerHTML = element.sellername;
+            cell7.innerHTML = element.sellerlocation;
+            cell8.innerHTML = '<button id="delete-data">Delete Data</button>';
+          }
+        });
+      });
+      xhr.open("GET", "https://kbtch9wude.execute-api.us-east-2.amazonaws.com/items");
+      xhr.send();
+    }
+
+    document.getElementById("load-name").onclick = function () {
+      var select = document.querySelector("body article form[id='formthree'] select[id='sellername']");
+      var selectedIndex = select.selectedIndex;
+      var options = select.options;
+      var selectedValue = options[selectedIndex].value;
+
+      let lambda = document.getElementById("lambda-info");
+      let xhr = new XMLHttpRequest();
+      xhr.addEventListener("load", function () {
+        // Get data from JSON server
+        let data = JSON.parse(xhr.response);
+
+        data.forEach(element => {
+          if(element.sellername == selectedValue) {
+            // Find a <table> element with id="table":
+            var table = document.getElementById("table");
+            
+            // Create an empty <tr> element and add it to the 1st position of the table:
+            var row = table.insertRow(2);
+            
+            // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+            
+            // Add some text to the new cells:
+            cell1.innerHTML = element.id;
+            cell2.innerHTML = '<img src="'+element.image+'" alt="An image." style="width:100px;height:100px;">'; 
+            cell3.innerHTML = element.name; 
+            cell4.innerHTML = element.price;
+            cell5.innerHTML = element.description;
+            cell6.innerHTML = element.sellername;
+            cell7.innerHTML = element.sellerlocation;
+            cell8.innerHTML = '<button id="delete-data">Delete Data</button>';
+          }
+        });
+      });
+      xhr.open("GET", "https://kbtch9wude.execute-api.us-east-2.amazonaws.com/items");
+      xhr.send();
+    }
+    
+    // Data sanitation
+    function onlyNumeric(input) {
+      var a = input;
+      var b = a.replace(/[^0-9]/gi, '');
+      return b;
+    }
+    </script>
+</body>
+
+</html>

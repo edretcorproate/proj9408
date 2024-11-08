@@ -1,18 +1,103 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title>Hello World!</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Home</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <h1>HTML Rocks!</h1>
-  <img src="img/compile.jpeg">
-  <script type="module" src="js/main.js"></script>
+  <h1 class="header" ><img class="header" src="img/infected.png" alt="infected logo" style="width:50px;height:50px;"> Kilimanjaro Black Market <img class="header" src="img/infected.png" alt="infected logo" style="width:50px;height:50px;"></h1>
+  
+  <div>
+	<ul class="navigation">
+		<li><span>Home</span></li>
+		<li><a href="data-modification.html">Add/Remove Market Item</a></li>
+		<li><a href="data-retrieval.html">Retrieve Specific/All Items</a></li>
+		<li><a href="merchant-map.html">Merchant Map</a></li>
+	</ul>
+  </div>
+  
+  <hr>
+
+  <article class="home" >
+    <h2>The MMO of Kilimanjaro</h2>
+    <h3>About MMO of Kilimanjaro</h3>
+    <p>----------------------------------------------------------------------------------------------------</p>
+    <br>
+    <p> This fictional and non-existent MMO called "MMO of Kilimanjaro" is a survival </p>
+    <p> game. This survival game has a market, and this market is represented on this </p>
+    <p> website. This market will contact a back-end AWS server to retrieve, add, and </p>
+    <p> remove data to and from itself. </p>
+    <br>
+    <p> Works kind of the same way as doing the back-end through the Universities </p>
+    <p> California servers with mySQL. Only, with AWS you don't have to code the back </p>
+    <p> -end as AWS does all the coding for the database for you so that you can </p>
+    <p> mainly focus on front-end coding and technologies. </p>
+    <br>
+    <p> What this market consists of is a bunch of items that carry the following </p>
+    <p> information: An image, item name, item price, seller name, location of seller </p>
+    <p> (in the game), quantity of items, taxes, and item description. </p>
+    <br>
+    <p> So, the table essentially looks like this: </p>
+    <br>
+    <table id="table">
+      <tr>
+          <th>Item Id</th>
+          <th>Image</th>
+          <th>Item Name</th>
+          <th>Item Price</th>
+          <th>Item Description</th>
+          <th>Seller Name</th>
+          <th>Location</th>
+      </tr>
+      <tr>
+          <td>0000000</td>
+          <td>https://www.example.com/</td>
+          <td>Sample</td>
+          <td>19</td>
+          <td>--------------------</td>
+          <td>--------------------</td>
+          <td>--------------------</td>
+      </tr>
+    </table>
+    <br>
+    <p> The image will just be a url or a pointer to an image in the image folder at </p>
+    <p> img/image_name.XXX, the url can be shrunk down with https://tinyurl.com/ as </p>
+    <p> the table has limited space. The other data such as taxes and quantity of </p>
+    <p> items will be calculated in this front-end with javascript functionality. </p>
+    <br>
+    <p>----------------------------------------------------------------------------------------------------</p>
+    <h3>About the Creator</h3>
+    <p>----------------------------------------------------------------------------------------------------</p>
+    <br>
+    <p> My name is Emanuel Dretcanu and I've been coding at BSU for about a few years </p>
+    <p> now and the journey has been really great. There have been rough patches here </p>
+    <p> and there but over all the schooling has been good for me and I have learned </p>
+    <p> a lot about programming and using various programming tools and software. </p>
+    <br>
+    <p> This is my second to last semester here at BSU and I am both glad and relieved. </p>
+    <p> It's been a long journey here at the university and to all who have read up </p>
+    <p> until this point, I wish you all a great semester and hope to see you at my </p>
+    <p> graduation next semester even if you yourself are not graduating. </p>
+    <br>
+    <p> Best regards, </p>
+    <br>
+    <p> Emanuel Dretcanu </p>
+    <br>
+    <p>----------------------------------------------------------------------------------------------------</p>
+  </article>
+
+  <hr>
+  <div class="footer">
+    <p>This website is made by Emanuel (Emi) Dretcanu to be used for <a href="https://www.boisestate.edu/">Boise State University</a> in accordance to their policies.</p>
+  </div>
+  <!--type="text/javascript"-->
+  <script src="js/main.js"></script>
 </body>
 
 </html>

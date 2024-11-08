@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Modify Item(s)</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <h1 class="header" ><img class="header" src="img/infected.png" alt="infected logo" style="width:50px;height:50px;"> Kilimanjaro Black Market <img class="header" src="img/infected.png" alt="infected logo" style="width:50px;height:50px;"></h1>
+  
+  <div>
+	<ul class="navigation">
+		<li><a href="index.html">Home</a></li>
+		<li><span>Add/Remove Market Item</span></li>
+		<li><a href="data-retrieval.html">Retrieve Specific/All Items</a></li>
+		<li><a href="merchant-map.html">Merchant Map</a></li>
+	</ul>
+  </div>
+  
+  <hr>
+  <article class="modify">
+    <h2 style="color:black;margin-left: auto;margin-right: auto;text-align: center;">Add or Remove Items</h2>
+
+    <p>Below is where you add or remove items from the Kilimanjaro Black Market.</p>
+
+    <!-- Form here -->
+    <form id="form">
+      <label for="id">ID:</label><br>
+      <input type="text" id="id" name="id"><br>
+      <label for="image">Image:</label><br>
+      <input type="text" id="image" name="image"><br>
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name"><br>
+      <label for="price">Price:</label><br>
+      <input type="text" id="price" name="price"><br>
+      <label for="description">Description:</label><br>
+      <input type="text" id="description" name="description"><br>
+      <label for="sellername">Seller Name:</label><br>
+      <input type="text" id="sellername" name="sellername"><br>
+      <label for="sellerlocation">Seller Location:</label><br>
+      <input type="text" id="sellerlocation" name="sellerlocation"><br>
+      <br>
+      <br>
+    </form> 
+    <br>
+
+    <button id="send-data">Add Data</button>
+
+    <br>
+    <br>
+
+    <!-- Form here -->
+    <form id="formtwo">
+        <label for="id2">Delete ID #:</label><br>
+        <input type="text" id="id2" name="id2"><br>
+        <br>
+        <br>
+    </form> 
+    <br>
+
+    <button id="delete-data">Delete Data</button>
+  </article>
+
+  <hr>
+  <div class="footer">
+    <p>This website is made by Emanuel (Emi) Dretcanu to be used for <a href="https://www.boisestate.edu/">Boise State University</a> in accordance to their policies.</p>
+  </div>
+
+  <script>
+    document.getElementById("send-data").onclick = function () {
+      var form = document.getElementById("form");
+
+      // 6666666 test put name 19
+      var id = form.elements[0].value;
+      var image = form.elements[1].value;
+      var name = form.elements[2].value;
+      var price = form.elements[3].value;
+      var description = form.elements[4].value;
+      var sellername = form.elements[5].value;
+      var sellerlocation = form.elements[6].value;
+      
+
+      // Data Sanitation
+      id = onlyNumeric(id);
+      image = onlyURL(image);
+      name = onlyAlphaNumeric(name);
+      price = onlyNumeric(price);
+      description = onlyAlphaNumeric(description);
+      sellername = onlyAlphaPeriod(sellername);
+      sellerlocation = onlyAlphaPeriod(sellerlocation);
+
+      let xhr = new XMLHttpRequest();
+      xhr.open("PUT", "https://kbtch9wude.execute-api.us-east-2.amazonaws.com/items");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send(JSON.stringify({
+          "id": id,
+          "image": image,
+          "name": name,
+          "price": price,
+          "description": description,
+          "sellername": sellername,
+          "sellerlocation": sellerlocation
+      }));
+   }
+
+   document.getElementById("delete-data").onclick = function () {
+    //Find a <form> element with id="form"
+    var form = document.getElementById("formtwo");
+    // 6666666 test put name 19
+    var id = form.elements[0].value;
+    // Data Sanitation
+    id = onlyNumeric(id);
+  
+    let xhr = new XMLHttpRequest();
+    xhr.open("DELETE", "https://kbtch9wude.execute-api.us-east-2.amazonaws.com/items/"+id);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send();
+   }
+
+   // Data sanitation
+   function onlyAlphaNumeric(input) {
+    var a = input;
+    // '\ ' = space '\.' = period
+    var b = a.replace(/[^a-z0-9\ ]/gi, '');
+    return b;
+   }
+
+   function onlyNumeric(input) {
+    var a = input;
+    var b = a.replace(/[^0-9]/gi, '');
+    return b;
+  }
+
+  function onlyAlphaPeriod(input) {
+    var a = input;
+    var b = a.replace(/[^a-z\.\ ]/gi, '');
+    return b;
+  }
+
+  function onlyURL(input) {
+    var a = input;
+    var b = a.replace(/[^a-z0-9\.\/\&\$\+\,\:\;\=\?\@\#-\_\~\(\)\'\!\*]/gi, '');
+    return b;
+  }
+
+  </script>
+</body>
+
+</html>

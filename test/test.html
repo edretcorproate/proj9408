@@ -1,12 +1,108 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8">
-<title>QUnit</title>
-<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.21.0.css">
+
+<head>
+  <meta charset="utf-8">
+  <title>QUnit</title>
+  <link rel="stylesheet" href="../node_modules/qunit/qunit/qunit.css" type="text/css">
+</head>
+
 <body>
   <div id="qunit"></div>
   <div id="qunit-fixture"></div>
-  <script src="https://code.jquery.com/qunit/qunit-2.21.0.js"></script>
-  <script type="module" src="test.js"></script>
+  <script src="../node_modules/qunit/qunit/qunit.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script src="tests.js"></script>
+  <script>
+    
+    function add(a, b) {
+      return a + b;
+    }
+    
+    /**
+     * This function returns the string 'hello'
+     * @return {string} the string hello
+     */
+    function sayHello() {
+      return 'hello';
+    }
+    
+    /**
+     * This function adds a sample item to the database
+     * Use retrieve Specific/All Items to confirm
+     */
+    
+    function addData() {
+      // Add Data
+      var id = "0000";
+      var image = "testImage";
+      var name = "testName";
+      var price = 0;
+      var description = "itemDescTest";
+      var sellername = "sellerNameTest";
+      var sellerlocation = "sellerLocTest";
+
+      var truth = false;
+      
+      let xhr = new XMLHttpRequest();
+      xhr.open("PUT", "https://kbtch9wude.execute-api.us-east-2.amazonaws.com/items");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send(JSON.stringify({
+          "id": id,
+          "image": image,
+          "name": name,
+          "price": price,
+          "description": description,
+          "sellername": sellername,
+          "sellerlocation": sellerlocation
+      }));
+
+      return true;
+    }
+
+    /**
+     * This function removes the above sample item from the database
+     * Use retrieve Specific/All Items to confirm
+     */
+
+    function deleteData() {
+      var id = "0000";
+      
+      let xhr = new XMLHttpRequest();
+      xhr.open("DELETE", "https://kbtch9wude.execute-api.us-east-2.amazonaws.com/items/"+id);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send();
+
+      return true;
+    }
+
+    QUnit.module('add', function() {
+      QUnit.test('two numbers', function(assert) {
+        assert.equal(add(1, 2), 3);
+      });
+    });
+
+    QUnit.module('hello', function() {
+      QUnit.test('make sure the hello function says hello', function(assert) {
+        var result = sayHello();
+        assert.equal(result, 'hello');
+      });
+    });
+
+    QUnit.module('adding data', function() {
+      QUnit.test('Confirm that database adding works', function(assert) {
+        var result = addData();
+        assert.equal(result, true);
+      });
+    });
+
+    QUnit.module('deleting data', function() {
+      QUnit.test('Confirm that database deletion works', function(assert) {
+        var result = deleteData();
+        assert.equal(result, true);
+      });
+    });
+  </script>    
 </body>
 </html>
+

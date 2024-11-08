@@ -30,7 +30,7 @@ one of the pages, and it will be in a png map either made by myself or from exte
 merchants.
 
 I will try to implement artificial inflation just to make things interesting. If this doesn't pan out please don't penalize me, because I know it will be
-difficult. However, I do know it is do able, even if it isn't for myself.
+difficult. However, I do know it is doable, even if it isn't for myself.
 
 The data it will manage goes like this, image, item name, item price, seller name, location of seller (in the game), quantity of items, taxes, item size
 (for clothing), item color, and item description. All of these will be unique to each item, so no item will have the same qualities. If something
@@ -89,3 +89,12 @@ Below is a detailed breakdown of the requirements.
         You must complete 100% of the requirements of  the A- project
         100% of your pages MUST get a perfect lighthouse score for accessibility in chrome (NO EXCEPTIONS AT ALL)
         Have between 21+ CSS styles
+		
+	## Sources
+	
+	https://www.logolynx.com/images/logolynx/e0/e0979a796b95f6cd6e049706c8aba331.jpeg
+	https://azgaar.github.io/Fantasy-Map-Generator/
+	https://clipart-library.com/download-border.html
+	https://www.coolgenerator.com/random-image-generator
+    https://www.w3schools.com/howto/howto_js_dropdown.asp
+    
